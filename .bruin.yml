@@ -2,6 +2,12 @@ default_environment: default
 environments:
     default:
         connections:
-            duckdb:
-                - name: duckdb-default
-                  path: duckdb.db
+            google_cloud_platform:
+                - location: asia-southeast1
+                  name: gcp
+                  project_id: ntu-dsai-488112
+                  use_application_default_credentials: true
+            gcs:
+                - name: gcs
+                  bucket_name: dsai-m2-bucket
+                  service_account_file: /Users/ian/Documents/Keys/ntu-dsai-gcs-user.json

@@ -1,0 +1,35 @@
+name: sggovdata.resale_flat_price
+type: ingestr
+connection: gcp
+depends:
+  - download_to_gcs
+
+parameters:
+  destination: bigquery
+  source_connection: gcs
+  source_table: dsai-m2-bucket/datagovsg/ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv
+  enforce_schema: true
+
+columns:
+  - name: month
+    type: STRING
+  - name: town
+    type: STRING
+  - name: flat_type
+    type: STRING
+  - name: block
+    type: STRING
+  - name: street_name
+    type: STRING
+  - name: storey_range
+    type: STRING
+  - name: floor_area_sqm
+    type: FLOAT
+  - name: flat_model
+    type: STRING
+  - name: lease_commence_date
+    type: INTEGER
+  - name: remaining_lease
+    type: STRING
+  - name: resale_price
+    type: FLOAT
