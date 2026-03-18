@@ -1,18 +1,27 @@
 name: sggovdata.resale_flat_price
 type: ingestr
 connection: gcp
+
 depends:
   - download_to_gcs
 
 parameters:
   destination: bigquery
+  enforce_schema: "true"
+  incremental_strategy: replace
   source_connection: gcs
-  source_table: dsai-m2-bucket/datagovsg/ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv
-  enforce_schema: true
+  source_table: datagovsg/ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv
+
+secrets:
+  - key: gcp
+    inject_as: gcp
 
 columns:
   - name: month
     type: STRING
+    checks:
+      - name: pattern
+        value: ____-__
   - name: town
     type: STRING
   - name: flat_type
@@ -25,6 +34,8 @@ columns:
     type: STRING
   - name: floor_area_sqm
     type: FLOAT
+    checks:
+      - name: positive
   - name: flat_model
     type: STRING
   - name: lease_commence_date
@@ -33,3 +44,5 @@ columns:
     type: STRING
   - name: resale_price
     type: FLOAT
+    checks:
+      - name: positive

@@ -1,8 +1,12 @@
 """@bruin
+
 name: download_to_gcs
 image: python:3.13
+
 secrets:
-    - key: gcs
+  - key: gcs
+    inject_as: gcs
+
 @bruin"""
 
 import json
