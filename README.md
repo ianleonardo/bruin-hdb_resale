@@ -38,7 +38,11 @@ bruin --version
 
 The extension provides asset previews, lineage graphs, and inline run buttons.
 
-![Bruin VS Code Extension Preview](images/bruin-vscode_ext.png)
+Sample screenshots:
+![Bruin VS Code Extension Preview](images/bruin-vscode_ext1.png)
+
+![Bruin VS Code Extension Preview](images/bruin-vscode_ext2.png)
+
 
 ### 3. Configure Connections
 
