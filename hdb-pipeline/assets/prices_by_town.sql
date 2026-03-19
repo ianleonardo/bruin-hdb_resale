@@ -1,10 +1,14 @@
 /* @bruin
+
 name: sggovdata.prices_by_town
 type: bq.sql
+
 materialization:
   type: view
+
 depends:
   - sggovdata.resale_flat_price_enriched
+
 @bruin */
 
 SELECT
